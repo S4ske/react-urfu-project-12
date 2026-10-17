@@ -1,4 +1,5 @@
 import {
+  Alert,
   Button,
   Container,
   Paper,
@@ -8,8 +9,19 @@ import {
   Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router";
+
+import { login } from "../api/auth.js";
+import { appRoutes } from "../routes.js";
+import useAuthStore from "../stores/authStore.js";
 
 const LoginPage = () => {
+  const token = useAuthStore((state) => state.token);
+  const logIn = useAuthStore((state) => state.logIn);
+  const navigate = useNavigate();
+  const [networkError, setNetworkError] = useState(false);
+
   const form = useForm({
     initialValues: {
       username: "",
@@ -17,7 +29,27 @@ const LoginPage = () => {
     },
   });
 
-  const handleSubmit = () => {};
+  if (token) {
+    return <Navigate to={appRoutes.root()} replace />;
+  }
+
+  const handleSubmit = async (values) => {
+    setNetworkError(false);
+    try {
+      const data = await login(values);
+      logIn(data);
+      navigate(appRoutes.root(), { replace: true });
+    } catch (error) {
+      if (error.status === 401) {
+        form.setErrors({
+          username: true,
+          password: "Неверные имя пользователя или пароль",
+        });
+        return;
+      }
+      setNetworkError(true);
+    }
+  };
 
   return (
     <Container size={420} py="xl">
@@ -27,6 +59,7 @@ const LoginPage = () => {
             <Title order={2} ta="center">
               Войти
             </Title>
+            {networkError && <Alert color="red">Ошибка соединения</Alert>}
             <TextInput
               label="Ваш ник"
               name="username"
@@ -39,7 +72,7 @@ const LoginPage = () => {
               autoComplete="current-password"
               {...form.getInputProps("password")}
             />
-            <Button type="submit" fullWidth>
+            <Button type="submit" fullWidth loading={form.submitting}>
               Войти
             </Button>
           </Stack>

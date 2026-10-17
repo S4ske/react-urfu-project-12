@@ -1,9 +1,20 @@
-import { Container, Title } from "@mantine/core";
+import { Button, Container, Group, Title } from "@mantine/core";
 
-const ChatPage = () => (
-  <Container py="xl">
-    <Title order={1}>Hexlet Chat</Title>
-  </Container>
-);
+import useAuthStore from "../stores/authStore.js";
+
+const ChatPage = () => {
+  const logOut = useAuthStore((state) => state.logOut);
+
+  return (
+    <Container py="xl">
+      <Group justify="space-between">
+        <Title order={1}>Hexlet Chat</Title>
+        <Button variant="default" onClick={logOut}>
+          Выйти
+        </Button>
+      </Group>
+    </Container>
+  );
+};
 
 export default ChatPage;
