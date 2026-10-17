@@ -15,10 +15,9 @@ const ChannelNameForm = ({ initialName = "", onSubmit, onCancel }) => {
       name: initialName,
     },
     validate: {
-      name: (value) => (
-        hasLength({ min: 3, max: 20 }, t("errors.length", { min: 3, max: 20 }))(value)
-        ?? (names.includes(cleanText(value)) ? t("errors.unique") : null)
-      ),
+      name: (value) =>
+        hasLength({ min: 3, max: 20 }, t("errors.length", { min: 3, max: 20 }))(value) ??
+        (names.includes(cleanText(value)) ? t("errors.unique") : null),
     },
   });
 

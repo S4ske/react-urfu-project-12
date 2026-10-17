@@ -13,7 +13,11 @@ const ChannelItem = ({ channel, isActive }) => {
     <NavLink
       component="button"
       type="button"
-      label={<Text inherit truncate="end">{t("channels.prefixedName", { name: channel.name })}</Text>}
+      label={
+        <Text inherit truncate="end">
+          {t("channels.prefixedName", { name: channel.name })}
+        </Text>
+      }
       title={channel.name}
       active={isActive}
       variant="filled"

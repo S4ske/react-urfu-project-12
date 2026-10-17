@@ -1,20 +1,9 @@
-import {
-  addChannel,
-  addMessage,
-  deleteChannel,
-  updateChannel,
-} from "./hooks/chatCache.js";
+import { addChannel, addMessage, deleteChannel, updateChannel } from "./hooks/chatCache.js";
 
 const disconnectToastId = "socket-disconnected";
 
-const subscribe = (socket, {
-  queryClient,
-  i18n,
-  uiStore,
-  toasts,
-}) => {
-  let wasConnected = socket.connected;
-  uiStore.getState().setConnected(socket.connected);
+const subscribe = (socket, { queryClient, i18n, uiStore, toasts }) => {
+  let wasConnected = Boolean(socket.connected);
 
   socket.on("connect", () => {
     uiStore.getState().setConnected(true);

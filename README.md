@@ -12,20 +12,35 @@
 
 ## Стек
 
-- JavaScript
+- JavaScript, React 19, Vite
+- Mantine (UI, формы, уведомления)
+- Zustand (состояние интерфейса и авторизации)
+- TanStack Query (серверные данные)
+- Socket.IO (real-time события)
+- i18next, leo-profanity, Sentry SDK (Bugsink)
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
+Требуется Node.js 22.12 или новее.
 
 ```bash
 git clone https://github.com/S4ske/react-urfu-project-12.git
 cd react-urfu-project-12
+make install
 ```
+
+Для отправки ошибок в Bugsink задайте переменную окружения `VITE_BUGSINK_DSN` (пример в `.env.example`).
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+```bash
+make build   # сборка фронтенда в dist
+make start   # сервер на http://localhost:5001 раздаёт dist и API
+make develop # dev-сервер Vite на http://localhost:5002 (нужен запущенный make start)
+make lint    # oxlint и проверка форматирования oxfmt
+```
+
+Тестовый пользователь: `admin` / `admin`.
 
 ---
 

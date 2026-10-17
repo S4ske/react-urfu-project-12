@@ -1,13 +1,4 @@
-import {
-  Alert,
-  Button,
-  Center,
-  Container,
-  Divider,
-  Flex,
-  Loader,
-  Paper,
-} from "@mantine/core";
+import { Alert, Button, Center, Container, Divider, Flex, Loader, Paper } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 
 import ChannelsList from "../components/chat/ChannelsList.jsx";
@@ -51,7 +42,12 @@ const ChatContent = () => {
   return (
     <Paper withBorder radius="md" h="100%">
       <Flex h="100%">
-        <Flex direction="column" w={{ base: 140, sm: 220 }} miw={{ base: 140, sm: 220 }} bg="gray.0">
+        <Flex
+          direction="column"
+          w={{ base: 140, sm: 220 }}
+          miw={{ base: 140, sm: 220 }}
+          bg="gray.0"
+        >
           <ChannelsList />
         </Flex>
         <Divider orientation="vertical" />

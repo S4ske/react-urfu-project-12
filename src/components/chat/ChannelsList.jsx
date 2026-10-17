@@ -1,11 +1,4 @@
-import {
-  ActionIcon,
-  Group,
-  ScrollArea,
-  Stack,
-  Text,
-  VisuallyHidden,
-} from "@mantine/core";
+import { ActionIcon, Group, ScrollArea, Stack, Text, VisuallyHidden } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -23,20 +16,14 @@ const ChannelsList = () => {
   const viewportRef = useRef(null);
 
   useEffect(() => {
-    viewportRef.current
-      ?.querySelector("[data-active]")
-      ?.scrollIntoView({ block: "nearest" });
+    viewportRef.current?.querySelector("[data-active]")?.scrollIntoView({ block: "nearest" });
   }, [currentChannel?.id]);
 
   return (
     <Stack gap="xs" h="100%">
       <Group justify="space-between" wrap="nowrap" px="sm" pt="md">
         <Text fw={700}>{t("channels.title")}</Text>
-        <ActionIcon
-          variant="subtle"
-          title={t("channels.add")}
-          onClick={() => openModal("add")}
-        >
+        <ActionIcon variant="subtle" title={t("channels.add")} onClick={() => openModal("add")}>
           <IconPlus size={18} />
           <VisuallyHidden>{t("channels.addShort")}</VisuallyHidden>
         </ActionIcon>

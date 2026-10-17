@@ -42,7 +42,8 @@ export default {
     chat: {
       loadError: "Не удалось загрузить данные",
       retry: "Повторить",
-      disconnected: "Нет соединения с сервером. Новые сообщения появятся после восстановления связи",
+      disconnected:
+        "Нет соединения с сервером. Новые сообщения появятся после восстановления связи",
       messagesCount_one: "{{count}} сообщение",
       messagesCount_few: "{{count}} сообщения",
       messagesCount_many: "{{count}} сообщений",

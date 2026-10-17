@@ -15,18 +15,18 @@ export const addChannel = (queryClient, channel) => {
 };
 
 export const updateChannel = (queryClient, channel) => {
-  queryClient.setQueryData(queryKeys.channels, (channels) => channels?.map(
-    (item) => (item.id === channel.id ? { ...item, ...channel } : item),
-  ));
+  queryClient.setQueryData(queryKeys.channels, (channels) =>
+    channels?.map((item) => (item.id === channel.id ? { ...item, ...channel } : item)),
+  );
 };
 
 export const deleteChannel = (queryClient, uiStore, { id }) => {
-  queryClient.setQueryData(queryKeys.channels, (channels) => channels?.filter(
-    (item) => item.id !== id,
-  ));
-  queryClient.setQueryData(queryKeys.messages, (messages) => messages?.filter(
-    ({ channelId }) => channelId !== id,
-  ));
+  queryClient.setQueryData(queryKeys.channels, (channels) =>
+    channels?.filter((item) => item.id !== id),
+  );
+  queryClient.setQueryData(queryKeys.messages, (messages) =>
+    messages?.filter(({ channelId }) => channelId !== id),
+  );
   const { currentChannelId, setCurrentChannel } = uiStore.getState();
   if (currentChannelId === id) {
     setCurrentChannel(null);

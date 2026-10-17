@@ -9,13 +9,7 @@ const RenameChannelModal = ({ channel, onClose }) => {
     onClose();
   };
 
-  return (
-    <ChannelNameForm
-      initialName={channel.name}
-      onSubmit={handleSubmit}
-      onCancel={onClose}
-    />
-  );
+  return <ChannelNameForm initialName={channel.name} onSubmit={handleSubmit} onCancel={onClose} />;
 };
 
 export default RenameChannelModal;

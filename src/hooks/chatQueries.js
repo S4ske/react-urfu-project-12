@@ -10,13 +10,7 @@ import {
   renameChannel,
 } from "../api/chat.js";
 import { useAuthStore, useStores, useToasts } from "../stores/hooks.js";
-import {
-  addChannel,
-  addMessage,
-  deleteChannel,
-  queryKeys,
-  updateChannel,
-} from "./chatCache.js";
+import { addChannel, addMessage, deleteChannel, queryKeys, updateChannel } from "./chatCache.js";
 
 export const useChannels = () => {
   const token = useAuthStore((state) => state.token);

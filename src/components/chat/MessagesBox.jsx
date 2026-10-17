@@ -13,7 +13,7 @@ const MessagesBox = ({ messages }) => {
     <ScrollArea flex={1} viewportRef={viewportRef} scrollbars="y" px="lg">
       <Stack gap="xs" py="md">
         {messages.map(({ id, username, body }) => (
-          <Text key={id} style={{ overflowWrap: "anywhere" }}>
+          <Text key={id}>
             <Text span fw={700}>
               {username}
             </Text>

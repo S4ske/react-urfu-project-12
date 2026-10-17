@@ -1,10 +1,4 @@
-import {
-  Anchor,
-  AppShell,
-  Button,
-  Container,
-  Group,
-} from "@mantine/core";
+import { Anchor, AppShell, Button, Container, Group } from "@mantine/core";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link, Outlet } from "react-router";
@@ -30,7 +24,14 @@ const Layout = () => {
       <AppShell.Header>
         <Container size="lg" h="100%">
           <Group h="100%" justify="space-between" wrap="nowrap">
-            <Anchor component={Link} to={appRoutes.root()} fw={700} fz="xl" c="dark" underline="never">
+            <Anchor
+              component={Link}
+              to={appRoutes.root()}
+              fw={700}
+              fz="xl"
+              c="dark"
+              underline="never"
+            >
               {t("appName")}
             </Anchor>
             {token && (

@@ -13,11 +13,11 @@ const App = () => (
     <Route element={<Layout />}>
       <Route
         path={appRoutes.root()}
-        element={(
+        element={
           <PrivateRoute>
             <ChatPage />
           </PrivateRoute>
-        )}
+        }
       />
       <Route path={appRoutes.login()} element={<LoginPage />} />
       <Route path={appRoutes.signup()} element={<SignupPage />} />

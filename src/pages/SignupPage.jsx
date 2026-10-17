@@ -9,12 +9,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import {
-  hasLength,
-  isNotEmpty,
-  matchesField,
-  useForm,
-} from "@mantine/form";
+import { hasLength, isNotEmpty, matchesField, useForm } from "@mantine/form";
 import { useTranslation } from "react-i18next";
 import { Link, Navigate, useNavigate } from "react-router";
 
@@ -38,9 +33,13 @@ const SignupPage = () => {
     },
     validateInputOnBlur: true,
     validate: {
-      username: (value) => required(value) ?? hasLength({ min: 3, max: 20 }, t("errors.length", { min: 3, max: 20 }))(value),
-      password: (value) => required(value) ?? hasLength({ min: 6 }, t("errors.minLength", { min: 6 }))(value),
-      confirmPassword: (value, values) => required(value) ?? matchesField("password", t("errors.passwordsMustMatch"))(value, values),
+      username: (value) =>
+        required(value) ??
+        hasLength({ min: 3, max: 20 }, t("errors.length", { min: 3, max: 20 }))(value),
+      password: (value) =>
+        required(value) ?? hasLength({ min: 6 }, t("errors.minLength", { min: 6 }))(value),
+      confirmPassword: (value, values) =>
+        required(value) ?? matchesField("password", t("errors.passwordsMustMatch"))(value, values),
     },
   });
 

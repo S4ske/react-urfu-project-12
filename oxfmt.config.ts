@@ -1,0 +1,21 @@
+export default {
+  ignorePatterns: [
+    "**/*.yml",
+    "**/*.yaml",
+    "**/*.json",
+    "**/*.jsonc",
+    "**/*.css",
+    "**/*.md",
+    "**/*.toml",
+    "**/npm-cache/**",
+    "**/vendor/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/.venv/**",
+    "**/__snapshots__/**",
+    "**/*.gen.ts",
+    "**/src/types/handlers/**",
+    "**/src/@types/**",
+  ],
+};

@@ -20,9 +20,7 @@ const ChannelModal = () => {
   const { data: channels = [] } = useChannels();
 
   const config = modal && modals[modal.type];
-  const channel = modal?.channelId
-    ? channels.find(({ id }) => id === modal.channelId)
-    : null;
+  const channel = modal?.channelId ? channels.find(({ id }) => id === modal.channelId) : null;
   const isOpened = Boolean(config) && (!modal.channelId || Boolean(channel));
 
   return (
