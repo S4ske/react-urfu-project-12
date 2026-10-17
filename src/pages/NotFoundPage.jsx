@@ -1,18 +1,25 @@
 import { Anchor, Container, Stack, Text, Title } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
-const NotFoundPage = () => (
-  <Container py="xl">
-    <Stack align="center">
-      <Title order={1}>Страница не найдена</Title>
-      <Text c="dimmed">
-        Но вы можете перейти{" "}
-        <Anchor component={Link} to="/">
-          на главную страницу
-        </Anchor>
-      </Text>
-    </Stack>
-  </Container>
-);
+import { appRoutes } from "../routes.js";
+
+const NotFoundPage = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container py="xl">
+      <Stack align="center">
+        <Title order={1}>{t("notFound.title")}</Title>
+        <Text c="dimmed">
+          {`${t("notFound.text")} `}
+          <Anchor component={Link} to={appRoutes.root()}>
+            {t("notFound.link")}
+          </Anchor>
+        </Text>
+      </Stack>
+    </Container>
+  );
+};
 
 export default NotFoundPage;

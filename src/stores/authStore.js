@@ -1,7 +1,7 @@
-import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { createStore } from "zustand/vanilla";
 
-const useAuthStore = create()(
+const createAuthStore = () => createStore()(
   persist(
     (set) => ({
       token: null,
@@ -16,4 +16,4 @@ const useAuthStore = create()(
   ),
 );
 
-export default useAuthStore;
+export default createAuthStore;

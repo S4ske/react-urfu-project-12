@@ -1,22 +1,10 @@
 import { apiRoutes } from "../routes.js";
+import { request } from "./client.js";
 
-export class HttpError extends Error {
-  constructor(status) {
-    super(`HTTP ${status}`);
-    this.status = status;
-  }
-}
+export const login = ({ username, password }) => (
+  request("POST", apiRoutes.login(), { body: { username, password } })
+);
 
-export const login = async ({ username, password }) => {
-  const response = await fetch(apiRoutes.login(), {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password }),
-  });
-
-  if (!response.ok) {
-    throw new HttpError(response.status);
-  }
-
-  return response.json();
-};
+export const signup = ({ username, password }) => (
+  request("POST", apiRoutes.signup(), { body: { username, password } })
+);
