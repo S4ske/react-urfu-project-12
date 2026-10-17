@@ -18,7 +18,7 @@ const ChatBox = () => {
     <Stack gap={0} h="100%">
       <Box px="lg" py="md" bg="gray.0" miw={0}>
         <Text fw={700} truncate="end">
-          {currentChannel && t("channels.prefixedName", { name: currentChannel.name })}
+          {currentChannel?.name}
         </Text>
         <Text size="sm" c="dimmed">
           {t("chat.messagesCount", { count: channelMessages.length })}
