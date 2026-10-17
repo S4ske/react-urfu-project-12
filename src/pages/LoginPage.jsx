@@ -29,14 +29,14 @@ const LoginPage = () => {
             </Title>
             <TextInput
               label="Ваш ник"
+              name="username"
               autoComplete="username"
-              required
               {...form.getInputProps("username")}
             />
             <PasswordInput
               label="Пароль"
+              name="password"
               autoComplete="current-password"
-              required
               {...form.getInputProps("password")}
             />
             <Button type="submit" fullWidth>
